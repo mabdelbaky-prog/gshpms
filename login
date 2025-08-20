@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Manager Portal Login</title>
+<style>
+  body {
+    margin:0; padding:0; font-family:'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa, #e4ebf7);
+    display:flex; justify-content:center; align-items:center; height:100vh;
+  }
+  .login-card {
+    background:white; padding:50px 40px; border-radius:14px;
+    box-shadow:0 8px 30px rgba(0,0,0,0.1); width:380px; text-align:center;
+  }
+  .login-card h2 { color:#2c3e50; margin-bottom:10px; }
+  .login-card p { color:#7f8c8d; margin-bottom:25px; font-size:14px; }
+  .login-card input {
+    padding:14px; width:100%; border-radius:8px; border:1px solid #ccd1d9;
+    font-size:15px; margin-bottom:20px; box-sizing:border-box;
+  }
+  .login-card button {
+    padding:14px; width:100%; border:none; border-radius:8px;
+    background:#0066cc; color:white; font-size:16px; font-weight:600;
+    cursor:pointer; transition:background 0.3s;
+  }
+  .login-card button:hover { background:#0055a3; }
+  .error { color:#e74c3c; margin-top:18px; font-size:14px; }
+  .footer { margin-top:30px; font-size:12px; color:#95a5a6; }
+</style>
+</head>
+<body>
+<div class="login-card">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Company Logo" style="max-width:140px; margin-bottom:25px;">
+  <h2>Manager Portal</h2>
+  <p>Enter your password to access your dashboard</p>
+  <input type="password" id="password" placeholder="Password">
+  <button onclick="checkPassword()">Sign In</button>
+  <p class="error" id="error"></p>
+  <p class="footer">© 2025 Your Company. All rights reserved.</p>
+</div>
+
+<script>
+function checkPassword() {
+  const pwd = document.getElementById("password").value.trim();
+
+  // Map passwords to manager pages
+  const pages = {
+    "ahmed123": "https://sites.google.com/view/your-site/ahmed",
+    "mona456": "https://sites.google.com/view/your-site/mona",
+    "khaled789": "https://sites.google.com/view/your-site/khaled"
+  };
+
+  if (pages[pwd]) {
+    window.location.href = pages[pwd];
+  } else {
+    document.getElementById("error").innerText = "❌ Incorrect password. Please try again.";
+  }
+}
+</script>
+</body>
+</html>
